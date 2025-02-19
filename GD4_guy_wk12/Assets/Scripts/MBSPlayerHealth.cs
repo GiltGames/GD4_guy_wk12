@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MBSPlayerHealth : MonoBehaviour
 {
     [SerializeField] float fltHealth;
     [SerializeField] float fltHealthMax;
     [SerializeField] Slider sldHealth;
+    [SerializeField] GameObject gmoGameOverScreen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,10 +37,20 @@ public class MBSPlayerHealth : MonoBehaviour
 
     void FnDeath()
     {
-
+        gmoGameOverScreen.SetActive(true);
+        Time.timeScale = 0f;
 
 
     }
+
+    public void FnRestart()
+    {
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+
+    }
+
 
     public void FnHealth(float fltHealTmp)
     {

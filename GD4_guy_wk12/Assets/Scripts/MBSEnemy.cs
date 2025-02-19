@@ -56,28 +56,28 @@ public class MBSEnemy : MonoBehaviour
 
        
 
-            RaycastHit2D hit = Physics2D.Raycast((transform.position + vecOffset.normalized), vecOffset,1000 );
+            RaycastHit2D hit = Physics2D.Raycast((transform.position + vecOffset.normalized), vecOffset,1000);
+            // should ignore the Visible which is on layer 6
+
 
             Debug.DrawRay(transform.position, vecOffset*2);
-            Debug.Log(hit.collider.gameObject.name);
+           
 
             if (hit.collider != null)
             {
-
+                Debug.Log("Enemy Sees "+ hit.collider.gameObject.name);
                 if (hit.collider.transform == trnPlayer)
                 {
-                    transform.Translate(vecOffset * Time.deltaTime * fltMoveSpeed);
-                    transform.GetComponent<Renderer>().enabled = true;
+                    transform.Translate(vecOffset.normalized * Time.deltaTime * fltMoveSpeed);
+                   
 
                 }
 
-                else
-                {
-                    transform.GetComponent<Renderer>().enabled = false;
+               
+                 
 
 
 
-                }
 
 
             }

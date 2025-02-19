@@ -58,7 +58,12 @@ public class MBSPotion : MonoBehaviour
     {
         mbsHealth.FnHealth(potPotion.fltPotency);
 
+        Color col = Color.red;
+        mbsAura.FnSetAura(col,0.4f);
+        
+        
 
+       
 
     }
 

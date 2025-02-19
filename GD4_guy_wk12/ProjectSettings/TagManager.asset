@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Tile
   - Visible
+  - Enemy
+  - Invulnerable
+  - Maze
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - Fog
   - Water
   - UI
-  - 
+  - IgnoreEnemyRaycastOnly
   - 
   - 
   - 

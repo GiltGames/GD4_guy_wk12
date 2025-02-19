@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class playerMovement : MonoBehaviour
@@ -16,6 +17,14 @@ public class playerMovement : MonoBehaviour
     [SerializeField] bool isMoveOK;
     [SerializeField] float fltRightLimit;
     [SerializeField] Touch tchMainTouch;
+    [SerializeField] PlayerInput inpPlayerInput;
+    [SerializeField] InputAction inpAction;
+    [SerializeField] InputAction inpAttack;
+    [SerializeField] Transform trnAttackArea;
+    [SerializeField] Transform trnPossAttackTop;
+    [SerializeField] Transform trnPossAttackBottom;
+    [SerializeField] Transform trnPossAttackLeft;
+    [SerializeField] Transform trnPossAttackRight;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +33,10 @@ public class playerMovement : MonoBehaviour
 
         //makes the character look down by default
         lookDirection = new Vector2(0, -1);
+        inpPlayerInput = GetComponent<PlayerInput>();
+        inpAction = inpPlayerInput.actions.FindAction("Move");
+        trnAttackArea = trnPossAttackBottom;
+
     }
 
     // Update is called once per frame
@@ -32,7 +45,10 @@ public class playerMovement : MonoBehaviour
         //getting input from keyboard controls
 
 
-        calculateMobileInput();
+        // calculateMobileInput();
+
+        calculateNewSystemInputs();
+
 #if UNITY_STANDALONE
 
 
@@ -75,6 +91,40 @@ public class playerMovement : MonoBehaviour
             //changes look direction only when the player is moving, so that we remember the last direction the player was moving in
             lookDirection = inputDirection;
 
+            float dTop = Mathf.Pow(lookDirection.x,2.0f) + Mathf.Pow((1 - lookDirection.y),2.0f);
+            float dRight = Mathf.Pow(1-lookDirection.x, 2.0f) + Mathf.Pow((lookDirection.y), 2.0f);
+            float dBottom = Mathf.Pow(lookDirection.x, 2.0f) + Mathf.Pow((-1 - lookDirection.y), 2.0f);
+            float dLeft = Mathf.Pow(-1-lookDirection.x, 2.0f) + Mathf.Pow((lookDirection.y), 2.0f);
+
+            trnAttackArea.gameObject.SetActive(false);
+
+            if (dTop < dBottom && dTop < dRight && dTop < dLeft)
+            {
+                trnAttackArea = trnPossAttackTop;
+                // top is smallest
+            }
+            if (dRight < dBottom && dRight < dTop && dRight < dLeft)
+            {
+                trnAttackArea = trnPossAttackRight;
+                //dRight smaller;
+            }
+            if (dLeft < dBottom && dLeft < dTop && dLeft < dRight)
+            {
+                trnAttackArea = trnPossAttackLeft;
+                //dLeft smaller;
+            }
+              
+            if (dBottom < dLeft && dBottom < dTop && dBottom < dRight)
+            {
+                trnAttackArea = trnPossAttackBottom;
+                //dBottom smaller;
+            }
+
+           
+
+            //set attack direction
+            
+
             //sets "isWalking" true. this triggers the walking blend tree
             anim.SetBool("isWalking", true);
         }
@@ -95,6 +145,10 @@ public class playerMovement : MonoBehaviour
         if (Input.touchCount > 1)
         { 
             attack(); 
+            trnAttackArea.gameObject.SetActive(true);
+
+
+
         }
 
 
@@ -103,6 +157,10 @@ public class playerMovement : MonoBehaviour
     public void attack()
     {
         anim.SetTrigger("Attack");
+
+        trnAttackArea.gameObject.SetActive(true);
+        trnAttackArea.GetComponent<MBSAttack>().fltAttackTimeEnd = Time.time + .5f;
+
     }
 
     void calculateMobileInput()
@@ -181,7 +239,7 @@ public class playerMovement : MonoBehaviour
 
 
 
-    void calculateTouchInput()
+  /*  void calculateTouchInput()
     {
         if (Input.touchCount > 0)
         {
@@ -254,7 +312,7 @@ public class playerMovement : MonoBehaviour
         }
 
     }
-
+  */
 
 
 
@@ -264,5 +322,28 @@ public class playerMovement : MonoBehaviour
 
     }
 
-   
+
+   void  calculateNewSystemInputs()
+    {
+
+       /* float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        inputDirection = new Vector2(x, y).normalized;
+       */
+       inputDirection = inpAction.ReadValue<Vector2>();
+
+
+
+        if (inpAttack.IsPressed() )
+        {
+            attack();
+        }
+
+
+
+
+    }
+
+
 }

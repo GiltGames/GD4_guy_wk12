@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75259a3267d518f438c6daa90dc6ee79, type: 3}
   m_Name: SpeedPotion
   m_EditorClassIdentifier: 
-  strPotion: 
-  intType: 0
-  colColorLiquid: {r: 0, g: 0, b: 0, a: 0}
-  fltPotency: 0
-  fltDuration: 0
+  strPotion: Speed Potion
+  intType: 1
+  colColorLiquid: {r: 0.3960484, g: 0.8025231, b: 0.9433962, a: 0}
+  fltPotency: 2
+  fltDuration: 15
