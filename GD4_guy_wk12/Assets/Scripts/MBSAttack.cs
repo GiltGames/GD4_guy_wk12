@@ -9,6 +9,7 @@ public class MBSAttack : MonoBehaviour
     [SerializeField] float fltSpeechTime=2.0f;
     public float fltAttackTimeEnd;
     [SerializeField] MBSSpeak mbsSpeech;
+    [SerializeField] GameObject gmoExplosionSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -38,15 +39,36 @@ public class MBSAttack : MonoBehaviour
 
 
         }
-        
+
+        if (other.tag == "Enemy")
+
+        {
+            mbsSpeech.FnSpeech("Go for the eyes, Boo!", fltSpeechTime + Time.time);
+            other.GetComponent<MBSEnemy>().FnHitEnemy(1.0f);
+
+        }
+
+
+        if (other.tag == "Missile")
+
+        {
+            mbsSpeech.FnSpeech("Go for the eyes, Boo!", fltSpeechTime + Time.time);
+            Instantiate(gmoExplosionSource,other.transform.position,Quaternion.Euler(90,0,0));
+            Destroy(other.gameObject);
+            
+
+
+
+        }
+
         gameObject.SetActive(false);
 
     }
 
 
-    private void OnTriggerStay2D(Collider2D other)
+  /*  private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Within attack area");
+        Debug.Log("Within attack area: -" + other.tag);
         Debug.Log(other.tag);
 
         if (other.tag == "Invulnerable")
@@ -56,10 +78,19 @@ public class MBSAttack : MonoBehaviour
 
         }
 
+        if (other.tag == "Enemy")
+
+        {
+            mbsSpeech.FnSpeech("Go for the eyes, Boo!", fltSpeechTime + Time.time);
+            other.GetComponent<MBSEnemy>().FnHitEnemy(1.0f);
+
+        }
+
+
         gameObject.SetActive(false);
 
     }
-
+  */
 
     void FnSpeech(string TextTmp, float timeend)
     {

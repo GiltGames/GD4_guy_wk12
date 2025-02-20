@@ -20,14 +20,19 @@ public class MBSEnemy : MonoBehaviour
     [SerializeField] GameObject gmoStatsCard;
     [SerializeField] TMP_Text tmpName, tmpDesc, tmpHealt, tmpSpeed, tmpDam, tmpSense;
     [SerializeField] Image imPic;
+    public float  fltHealth;
     public bool isLOS;
+    [SerializeField] GameObject gmoAura;
+    [SerializeField] Material matAura;
+    [SerializeField] float fltAuraOff;
+    [SerializeField] float fltAuraShowDuration=.5f;
+    [SerializeField] bool isAuraOn;
 
 
-   
-    
 
-    
-    
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,7 +44,9 @@ public class MBSEnemy : MonoBehaviour
         fltMoveSpeed =  enEnemy.fltSpeed;
         fltDamage = enEnemy.fltDamage;
         fltSenseRange = enEnemy.fltSenseRange;  
+        fltHealth = enEnemy.fltHealth;
 
+        matAura = gmoAura.GetComponent<Renderer>().material;
 
     }
 
@@ -81,11 +88,15 @@ public class MBSEnemy : MonoBehaviour
                  
 
 
-
-
-
             }
 
+        }
+
+        // Aura off check
+        if (Time.time > fltAuraOff && isAuraOn)
+        {
+            gmoAura.SetActive(false);
+            isAuraOn = false;
         }
 
 
@@ -160,6 +171,22 @@ public class MBSEnemy : MonoBehaviour
         Time.timeScale = 1.0f;
 
 
+    }
+
+    public void FnHitEnemy(float dam)
+    {
+        fltHealth -= dam;
+
+       
+
+        matAura.color = Color.Lerp(Color.red, Color.green, fltHealth/enEnemy.fltHealth);
+        gmoAura.gameObject.SetActive(true);
+        fltAuraOff = Time.time + fltAuraShowDuration;
+        isAuraOn = true;
+        if (fltHealth < 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 

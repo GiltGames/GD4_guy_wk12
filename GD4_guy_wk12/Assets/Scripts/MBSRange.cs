@@ -1,3 +1,4 @@
+using Unity.Hierarchy;
 using UnityEngine;
 
 public class MBSRange : MonoBehaviour
@@ -11,6 +12,8 @@ public class MBSRange : MonoBehaviour
     [SerializeField] GameObject gmoMissile;
     [SerializeField] Vector3 vecOffset;
     [SerializeField] Transform trnPlayer;
+    [SerializeField] float fltDamage;
+    [SerializeField] float fltMinDistance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,15 +25,16 @@ public class MBSRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        vecOffset = trnPlayer.position - transform.position;
 
         if (mbsEnemy.isLOS)
         {
             fltAttackTimer += Time.deltaTime;
         }
 
-        if (fltAttackTimer > fltAttackInterval)
+        if (fltAttackTimer > fltAttackInterval && vecOffset.magnitude > fltMinDistance)
         {
-            fltAttackTimer = 0;
+            fltAttackTimer = -Random.Range(0,fltAttackVariability);
             FnLaunch();
 
         }
@@ -40,20 +44,14 @@ public class MBSRange : MonoBehaviour
 
     void FnLaunch()
     {
-        vecOffset = trnPlayer.position = transform.position;
-
-        gmoMissile = Instantiate(gmoMissileSource, transform.position, Quaternion.identity);
         
-        gmoMissile.GetComponent<MBSMissile>().FnStart(vecOffset.normalized,fltMissileSpeed);
+
+        gmoMissile = Instantiate(gmoMissileSource,transform.position,Quaternion.Euler(90,0,0));
+        
+        gmoMissile.GetComponent<MBSMissile>().FnStart(vecOffset.normalized,fltMissileSpeed,fltDamage);
 
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-
-
-    }
 
 }

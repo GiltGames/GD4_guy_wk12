@@ -15,9 +15,9 @@ MonoBehaviour:
   strName: Toothy
   sprImage: {fileID: 21300000, guid: 62e4bd91e40ce83428000f0f76b9f752, type: 3}
   fltHealth: 3
-  fltSpeed: 3
-  fltDamage: 20
+  fltSpeed: 1
+  fltDamage: 2
   isVulnerable: 1
   strDescription: 
   isHostile: 0
-  fltSenseRange: 15
+  fltSenseRange: 50

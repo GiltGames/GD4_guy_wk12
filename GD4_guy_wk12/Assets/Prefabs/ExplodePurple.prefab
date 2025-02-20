@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 851287480606270241}
   - component: {fileID: 8244974422731880975}
   - component: {fileID: 5318320812584539562}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ExplodePurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}

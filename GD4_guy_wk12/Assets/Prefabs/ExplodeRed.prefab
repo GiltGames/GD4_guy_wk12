@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6533455341977874445}
   - component: {fileID: 220524179077450365}
   - component: {fileID: 1088138209716495961}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ExplodeRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

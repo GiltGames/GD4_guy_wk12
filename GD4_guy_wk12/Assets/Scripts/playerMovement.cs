@@ -45,9 +45,9 @@ public class playerMovement : MonoBehaviour
         //getting input from keyboard controls
 
 
-        // calculateMobileInput();
+        calculateMobileInput();
 
-        calculateNewSystemInputs();
+      //  calculateNewSystemInputs();
 
 #if UNITY_STANDALONE
 
