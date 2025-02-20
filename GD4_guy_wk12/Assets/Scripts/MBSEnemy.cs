@@ -20,6 +20,7 @@ public class MBSEnemy : MonoBehaviour
     [SerializeField] GameObject gmoStatsCard;
     [SerializeField] TMP_Text tmpName, tmpDesc, tmpHealt, tmpSpeed, tmpDam, tmpSense;
     [SerializeField] Image imPic;
+    public bool isLOS;
 
 
    
@@ -69,11 +70,14 @@ public class MBSEnemy : MonoBehaviour
                 if (hit.collider.transform == trnPlayer)
                 {
                     transform.Translate(vecOffset.normalized * Time.deltaTime * fltMoveSpeed);
-                   
+                   isLOS = true;
 
                 }
 
-               
+               else
+                {
+                    isLOS = false;
+                }
                  
 
 
