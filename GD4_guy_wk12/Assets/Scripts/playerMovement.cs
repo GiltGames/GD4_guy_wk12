@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] Transform trnPossAttackBottom;
     [SerializeField] Transform trnPossAttackLeft;
     [SerializeField] Transform trnPossAttackRight;
+    [SerializeField] bool isCrown;
 
     // Start is called before the first frame update
     void Start()
@@ -342,6 +343,22 @@ public class playerMovement : MonoBehaviour
 
 
 
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Finish")
+        {
+
+            if (isCrown)
+            {
+
+                
+            }
+
+        }
 
     }
 

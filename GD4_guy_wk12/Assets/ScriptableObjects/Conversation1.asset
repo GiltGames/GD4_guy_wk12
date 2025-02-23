@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40966e8b4c9de8048b52c6ec77a5667c, type: 3}
+  m_Name: Conversation1
+  m_EditorClassIdentifier: 
+  strConversationText: '{     "data": [         {             "Index": 0,            
+    "SpeakerIndex": 1,             "Speaker": "Trader",             "Words": "Good
+    morning",             "Resp0": "Hello",             "NextNode0": 1,            
+    "Resp1": "Greetings",             "NextNode1": 1,             "Resp2": "Nice
+    weather",             "NextNode2": 1,             "Resp3": "Go away",            
+    "NextNode3": 99,             "Resp4": "",             "NextNode4": -1,            
+    "Resp5": "",             "NextNode5": -1,             "Flag": "",            
+    "FlagSet": ""         },         {             "Index": 1,             "SpeakerIndex":
+    1,             "Speaker": "Trader",             "Words": "Would you like to trade",            
+    "Resp0": "Yes",             "NextNode0": 2,             "Resp1": "No",            
+    "NextNode1": 3,             "Resp2": "",             "NextNode2": -1,            
+    "Resp3": "",             "NextNode3": -1,             "Resp4": "",            
+    "NextNode4": -1,             "Resp5": "",             "NextNode5": -1,            
+    "Flag": "",             "FlagSet": ""         },         {             "Index":
+    2,             "SpeakerIndex": 1,             "Speaker": "Trader",            
+    "Words": "Great - here are my deals",             "Resp0": "BUY",            
+    "NextNode0": 99,             "Resp1": "",             "NextNode1": -1,            
+    "Resp2": "",             "NextNode2": -1,             "Resp3": "",            
+    "NextNode3": -1,             "Resp4": "",             "NextNode4": -1,            
+    "Resp5": "",             "NextNode5": -1,             "Flag": 1,            
+    "FlagSet": 1         },         {             "Index": 3,             "SpeakerIndex":
+    1,             "Speaker": "Trader",             "Words": "Next Time",            
+    "Resp0": "LEAVE",             "NextNode0": 99,             "Resp1": "",            
+    "NextNode1": -1,             "Resp2": "",             "NextNode2": -1,            
+    "Resp3": "",             "NextNode3": -1,             "Resp4": "",            
+    "NextNode4": -1,             "Resp5": "",             "NextNode5": -1,            
+    "Flag": 1,             "FlagSet": 2         }     ] }'

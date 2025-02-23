@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Invulnerable
   - Maze
+  - Missile
   layers:
   - Default
   - TransparentFX

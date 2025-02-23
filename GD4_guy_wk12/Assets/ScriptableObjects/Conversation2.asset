@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40966e8b4c9de8048b52c6ec77a5667c, type: 3}
+  m_Name: Conversation2
+  m_EditorClassIdentifier: 
+  strConversationText: "{\r\n    \"data\": [\r\n        {\r\n            \"Index\":
+    0,\r\n            \"SpeakerIndex\": 1,\r\n            \"Speaker\": \"Trader\",\r\n           
+    \"Words\": \"Good morning\",\r\n            \"Resp0\": \"Hello\",\r\n           
+    \"NextNode0\": 1,\r\n            \"Resp1\": \"Greetings\",\r\n            \"NextNode1\":
+    1,\r\n            \"Resp2\": \"Nice weather\",\r\n            \"NextNode2\":
+    1,\r\n            \"Resp3\": \"Go away\",\r\n            \"NextNode3\": 99,\r\n           
+    \"Resp4\": \"Who are you?\",\r\n            \"NextNode4\": 4,\r\n           
+    \"Resp5\": \"\",\r\n            \"NextNode5\": -1,\r\n            \"Flag\": \"\",\r\n           
+    \"FlagSet\": \"\",\r\n            \"NavOne\": \"\"\r\n        },\r\n        {\r\n           
+    \"Index\": 1,\r\n            \"SpeakerIndex\": 1,\r\n            \"Speaker\":
+    \"Trader\",\r\n            \"Words\": \"Would you like to trade\",\r\n           
+    \"Resp0\": \"Yes\",\r\n            \"NextNode0\": 2,\r\n            \"Resp1\":
+    \"No\",\r\n            \"NextNode1\": 3,\r\n            \"Resp2\": \"\",\r\n           
+    \"NextNode2\": -1,\r\n            \"Resp3\": \"\",\r\n            \"NextNode3\":
+    -1,\r\n            \"Resp4\": \"\",\r\n            \"NextNode4\": -1,\r\n           
+    \"Resp5\": \"\",\r\n            \"NextNode5\": -1,\r\n            \"Flag\": \"\",\r\n           
+    \"FlagSet\": \"\",\r\n            \"NavOne\": \"\"\r\n        },\r\n        {\r\n           
+    \"Index\": 2,\r\n            \"SpeakerIndex\": 1,\r\n            \"Speaker\":
+    \"Trader\",\r\n            \"Words\": \"Great - here are my deals\",\r\n           
+    \"Resp0\": \"BUY\",\r\n            \"NextNode0\": 99,\r\n            \"Resp1\":
+    \"\",\r\n            \"NextNode1\": -1,\r\n            \"Resp2\": \"\",\r\n           
+    \"NextNode2\": -1,\r\n            \"Resp3\": \"\",\r\n            \"NextNode3\":
+    -1,\r\n            \"Resp4\": \"\",\r\n            \"NextNode4\": -1,\r\n           
+    \"Resp5\": \"\",\r\n            \"NextNode5\": -1,\r\n            \"Flag\": 1,\r\n           
+    \"FlagSet\": 1,\r\n            \"NavOne\": \"\"\r\n        },\r\n        {\r\n           
+    \"Index\": 3,\r\n            \"SpeakerIndex\": 1,\r\n            \"Speaker\":
+    \"Trader\",\r\n            \"Words\": \"Next Time\",\r\n            \"Resp0\":
+    \"LEAVE\",\r\n            \"NextNode0\": 99,\r\n            \"Resp1\": \"\",\r\n           
+    \"NextNode1\": -1,\r\n            \"Resp2\": \"\",\r\n            \"NextNode2\":
+    -1,\r\n            \"Resp3\": \"\",\r\n            \"NextNode3\": -1,\r\n           
+    \"Resp4\": \"\",\r\n            \"NextNode4\": -1,\r\n            \"Resp5\":
+    \"\",\r\n            \"NextNode5\": -1,\r\n            \"Flag\": 1,\r\n           
+    \"FlagSet\": 2,\r\n            \"NavOne\": \"\"\r\n        },\r\n        {\r\n           
+    \"Index\": 4,\r\n            \"SpeakerIndex\": 1,\r\n            \"Speaker\":
+    \"Trader\",\r\n            \"Words\": \"I am Bob the Trader\",\r\n           
+    \"Resp0\": \"Hello, Bob\",\r\n            \"NextNode0\": 0,\r\n            \"Resp1\":
+    \"\",\r\n            \"NextNode1\": -1,\r\n            \"Resp2\": \"\",\r\n           
+    \"NextNode2\": -1,\r\n            \"Resp3\": \"\",\r\n            \"NextNode3\":
+    -1,\r\n            \"Resp4\": \"\",\r\n            \"NextNode4\": -1,\r\n           
+    \"Resp5\": \"\",\r\n            \"NextNode5\": -1,\r\n            \"Flag\": \"\",\r\n           
+    \"FlagSet\": \"\",\r\n            \"NavOne\": 1\r\n        }\r\n    ]\r\n}"
