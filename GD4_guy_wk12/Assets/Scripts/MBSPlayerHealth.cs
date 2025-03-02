@@ -8,11 +8,13 @@ public class MBSPlayerHealth : MonoBehaviour
     [SerializeField] float fltHealthMax;
     [SerializeField] Slider sldHealth;
     [SerializeField] GameObject gmoGameOverScreen;
+    [SerializeField] playerMovement playerMovement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         fltHealth = fltHealthMax;
+        playerMovement = FindFirstObjectByType<playerMovement>();
     }
 
     // Update is called once per frame
@@ -45,7 +47,8 @@ public class MBSPlayerHealth : MonoBehaviour
 
     public void FnRestart()
     {
-
+        playerMovement.isCrown = false;
+        playerMovement.isStart = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
 

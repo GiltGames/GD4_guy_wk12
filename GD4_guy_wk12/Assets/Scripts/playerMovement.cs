@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour
 {
@@ -25,7 +27,11 @@ public class playerMovement : MonoBehaviour
     [SerializeField] Transform trnPossAttackBottom;
     [SerializeField] Transform trnPossAttackLeft;
     [SerializeField] Transform trnPossAttackRight;
-    [SerializeField] bool isCrown;
+    public bool isCrown;
+    [SerializeField] TMP_Text txtGameOverWin;
+    [SerializeField] GameObject gmoGameOver;
+    public bool isStart;
+    [SerializeField] GameObject gmoStartScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +51,10 @@ public class playerMovement : MonoBehaviour
     {
         //getting input from keyboard controls
 
-
-        calculateMobileInput();
-
+        if (isStart)
+        {
+            calculateMobileInput();
+        }
       //  calculateNewSystemInputs();
 
 #if UNITY_STANDALONE
@@ -354,13 +361,42 @@ public class playerMovement : MonoBehaviour
 
             if (isCrown)
             {
+                txtGameOverWin.text = "You have retrieved the Crown";
 
-                
+
             }
+
+            else
+            {
+                txtGameOverWin.text = "You have failed to retrieve the Crown";
+            }
+
+            gmoGameOver.SetActive(true);
+            Time.timeScale = 0f;
+            isStart = false;
+            isCrown = false;
+           
 
         }
 
+
+        if (collision.tag == "Crown")
+        {
+            Destroy(collision.gameObject);
+            isCrown = true;
+
+
+        }
+
+
     }
 
+
+    public void FnStart()
+    {
+        isStart = true;
+        gmoStartScreen.SetActive(false);
+
+    }
 
 }

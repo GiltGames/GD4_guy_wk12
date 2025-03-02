@@ -52,7 +52,7 @@ public class MBSAttack : MonoBehaviour
         if (other.tag == "Missile")
 
         {
-            mbsSpeech.FnSpeech("Go for the eyes, Boo!", fltSpeechTime + Time.time);
+            mbsSpeech.FnSpeech("Is that the best you've got?", fltSpeechTime + Time.time);
             Instantiate(gmoExplosionSource,other.transform.position,Quaternion.Euler(90,0,0));
             Destroy(other.gameObject);
             

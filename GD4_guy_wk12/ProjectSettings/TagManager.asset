@@ -10,6 +10,7 @@ TagManager:
   - Invulnerable
   - Maze
   - Missile
+  - Crown
   layers:
   - Default
   - TransparentFX
